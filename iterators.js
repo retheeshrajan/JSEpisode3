@@ -6,9 +6,8 @@ import { SSL_OP_PKCS1_CHECK_1 } from "constants";
 * - Accepts an array
 * - Logs every element of the array
 ************************************/
-const logger = function(array) {
-   array.forEach(ar => console.log(ar));
-}
+const logger = array => array.forEach(ar => console.log(ar));
+
 
 /*************************************
 * toCelsius(temperatures)
@@ -21,10 +20,7 @@ const logger = function(array) {
 * The conversion is:
 *   C = (F - 32) * (5/9)
 ************************************/
-const toCelsius = function(temperatures)  {
-  return temperatures.map(temp => ((temp - 32) * (5/9)) );
-  };
-
+const toCelsius = temperatures => { return temperatures.map(temp => ((temp - 32) * (5/9))) };
 /**************************************
 * hottestDays(temperatures, threshhold)
 *
@@ -33,8 +29,7 @@ const toCelsius = function(temperatures)  {
 * - Returns an array of temperatures
 *   that exceed the threshhold
 ***************************************/
-const hottestDays = function(temperatures, threshhold) {
-  return temperatures.filter(temp => temp > threshhold);
+const hottestDays = (temperatures, threshhold) => {return temperatures.filter(temp => temp > threshhold);
 }
 
 
@@ -52,9 +47,7 @@ const hottestDays = function(temperatures, threshhold) {
 * hint: you can combine
 *       all previous functions
 *******************************************/
-const logHottestDays = function(temperatures, threshhold) {
-  logger(toCelsius(hottestDays(temperatures, threshhold)))
-}
+const logHottestDays = (temperatures, threshhold) => logger(toCelsius(hottestDays(temperatures, threshhold)));
 
 
 export {logger, toCelsius, hottestDays, logHottestDays}
